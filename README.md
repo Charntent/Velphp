@@ -9,5 +9,5 @@ Velphp
 ### 安装步骤
 * git clone https://github.com/Charntent/Velphp.git
 ### 作者
-[www.ctphp.ccom][2] (http://www.ctphp.cn)
+[Charntent](http://www.ctphp.com)
 
