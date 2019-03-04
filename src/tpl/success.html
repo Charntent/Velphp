@@ -1,0 +1,50 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>成功提示</title>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.8.0/jquery-1.8.0.min.js"></script>
+</head>
+<style>
+    body{ background: #fff; font-size: 0.3rem;}
+    .layui-main .error{ color: #fe4e63; margin-top: 0.2rem; font-size: 20px;}
+    .layui-main .btn{ margin-top: 0.4rem}
+    .layui-main .btn a{ width: 120px; height:30px; text-decoration: none; background:#35d3af; display: inline-block; line-height: 30px; text-align: center; color: #fff; border-radius:10px}
+    .err_box{
+        width: 60px;
+        height: 60px;
+        background-color: #1aad19;
+        opacity: 90;
+        line-height: 60px;
+        border-radius: 100%;
+        margin: 30px auto;
+    }
+    a.errorx{ display: inline-block; width: 15px;height:5px; background: #fff;line-height: 0;font-size:0;vertical-align: middle;-webkit-transform: rotate(45deg);position: relative;top: 30px;left: -9px;}
+    a.errorx:after{content:'/';display:block;width: 30px;height:5px; background: #fff;-webkit-transform: rotate(-90deg);left: 2px;top: -12px; position: absolute}
+</style>
+<div class="layui-main" style="max-width:100%;">
+    <div class="ub-address-info" id="esm" style="text-align:center">
+        <div class="err_box"><a class="errorx"></a></div>
+        <p class="error">{$msg}</p>
+        <p class="btn"><a href="{$redirect}" class="ub-color">点击此处立即跳转</a></p>
+    </div>
+</div>
+
+<script>
+    $(function(){
+        var pageHeight = $(window).height();
+        var ma = (pageHeight-200)/2-60;
+        $('#esm').css('margin',ma+"px auto");
+        var i =  parseInt('{$time}');
+        var fn = function () {
+            i = i - 1000;
+            if(i<0){
+                window.location="{$redirect}";
+                clearInterval(timer);
+            }
+        };
+        timer = setInterval(fn, 1000);
+
+    })
+</script>
+</body>
+</html>
